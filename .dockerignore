@@ -1,0 +1,16 @@
+node_modules
+dist
+.output
+.wrangler
+.git
+.github
+.vscode
+.lovable
+.workspace
+tsconfig.tsbuildinfo
+npm-debug.log*
+*.log
+.DS_Store
+Dockerfile
+docker-compose.yml
+.dockerignore
