@@ -7,11 +7,20 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 // Outside Lovable (e.g. the Docker image), NITRO_PRESET pins the deploy target —
-// the Dockerfile sets `node-server` so the build emits a plain Node server.
+// the Dockerfile sets `node-server` so the build emits a plain Node server into
+// dist/ (same layout Lovable builds use, which the Dockerfile runtime stage copies).
 const nitroPreset = process.env["NITRO_PRESET"];
 
 export default defineConfig({
-  ...(nitroPreset ? { nitro: { preset: nitroPreset } } : {}),
+  ...(nitroPreset
+    ? {
+        nitro: {
+          preset: nitroPreset,
+          output: { dir: "dist", serverDir: "dist/server", publicDir: "dist/client" },
+        },
+      }
+    : {}),
+
 
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).

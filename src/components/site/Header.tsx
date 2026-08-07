@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import logo from "@/assets/mridora-logo.png.asset.json";
 
 const NAV = [
   { label: "Products", href: "#products" },
@@ -27,7 +26,7 @@ export function Header() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
         <a href="#top" className="flex items-center" aria-label="MRIDORA home">
           <img
-            src={logo.url}
+            src="/mridora-logo.png"
             alt="MRIDORA ceramic exports"
             width={140}
             height={94}
