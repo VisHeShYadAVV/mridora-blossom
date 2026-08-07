@@ -1,0 +1,14 @@
+services:
+  mridora:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mridora-site:latest
+    container_name: mridora-site
+    ports:
+      - "21179:3000"
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      HOST: 0.0.0.0
+    restart: unless-stopped
