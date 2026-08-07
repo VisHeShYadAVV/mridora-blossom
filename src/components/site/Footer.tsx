@@ -1,4 +1,3 @@
-import logo from "@/assets/mridora-logo.png.asset.json";
 
 export function Footer() {
   return (
@@ -6,7 +5,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-3 lg:px-10">
         <div>
           <img
-            src={logo.url}
+            src="/mridora-logo.png"
             alt="MRIDORA"
             width={140}
             height={94}
