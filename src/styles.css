@@ -42,6 +42,10 @@
   --color-navy-soft: var(--navy-soft);
   --color-gold: var(--gold);
   --color-sand: var(--sand);
+  /* Legacy aliases kept so existing sections keep rendering */
+  --color-espresso: var(--navy);
+  --color-espresso-foreground: var(--navy-foreground);
+  --color-clay: var(--gold);
 }
 
 :root {
@@ -74,6 +78,9 @@
   --navy-foreground: oklch(0.96 0.006 85);
   --gold: oklch(0.74 0.082 82);
   --sand: oklch(0.948 0.01 82);
+  --espresso: oklch(0.215 0.048 263);
+  --espresso-foreground: oklch(0.96 0.006 85);
+  --clay: oklch(0.74 0.082 82);
   --shadow-soft: 0 20px 50px -32px oklch(0.22 0.05 263 / 0.4);
 }
 
