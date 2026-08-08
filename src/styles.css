@@ -5,17 +5,10 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ * MRIDORA GLOBAL design system.
+ * Deep navy / midnight blue, warm ivory, restrained muted gold accents and
+ * charcoal typography. All colour values use oklch and are exposed to Tailwind
+ * through @theme inline.
  */
 
 @theme inline {
@@ -44,43 +37,51 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-espresso: var(--espresso);
-  --color-espresso-foreground: var(--espresso-foreground);
-  --color-clay: var(--clay);
+  --color-navy: var(--navy);
+  --color-navy-foreground: var(--navy-foreground);
+  --color-navy-soft: var(--navy-soft);
   --color-gold: var(--gold);
   --color-sand: var(--sand);
+  /* Legacy aliases kept so existing sections keep rendering */
+  --color-espresso: var(--navy);
+  --color-espresso-foreground: var(--navy-foreground);
+  --color-clay: var(--gold);
 }
 
 :root {
-  --radius: 0.25rem;
-  /* Warm cream paper */
-  --background: oklch(0.975 0.008 85);
-  --foreground: oklch(0.24 0.012 60);
-  --card: oklch(0.99 0.005 85);
-  --card-foreground: oklch(0.24 0.012 60);
-  --popover: oklch(0.99 0.005 85);
-  --popover-foreground: oklch(0.24 0.012 60);
-  /* Terracotta clay */
-  --primary: oklch(0.58 0.115 40);
-  --primary-foreground: oklch(0.98 0.008 85);
-  --secondary: oklch(0.93 0.014 80);
-  --secondary-foreground: oklch(0.28 0.014 60);
-  --muted: oklch(0.94 0.012 82);
-  --muted-foreground: oklch(0.48 0.014 62);
-  --accent: oklch(0.9 0.02 78);
-  --accent-foreground: oklch(0.28 0.014 60);
+  --radius: 0.125rem;
+  /* Warm ivory */
+  --background: oklch(0.978 0.006 85);
+  --foreground: oklch(0.22 0.012 262);
+  --card: oklch(0.995 0.003 85);
+  --card-foreground: oklch(0.22 0.012 262);
+  --popover: oklch(0.995 0.003 85);
+  --popover-foreground: oklch(0.22 0.012 262);
+  /* Deep navy */
+  --primary: oklch(0.31 0.062 263);
+  --primary-foreground: oklch(0.98 0.006 85);
+  --secondary: oklch(0.94 0.008 85);
+  --secondary-foreground: oklch(0.26 0.014 262);
+  --muted: oklch(0.945 0.008 85);
+  --muted-foreground: oklch(0.47 0.014 262);
+  /* Muted gold */
+  --accent: oklch(0.74 0.082 82);
+  --accent-foreground: oklch(0.22 0.03 262);
   --destructive: oklch(0.55 0.19 27);
-  --destructive-foreground: oklch(0.98 0.008 85);
-  --border: oklch(0.88 0.012 80);
-  --input: oklch(0.88 0.012 80);
-  --ring: oklch(0.58 0.115 40);
-  /* Brand extras */
-  --espresso: oklch(0.21 0.014 55);
-  --espresso-foreground: oklch(0.94 0.012 82);
-  --clay: oklch(0.58 0.115 40);
-  --gold: oklch(0.78 0.11 85);
-  --sand: oklch(0.93 0.016 80);
-  --shadow-soft: 0 24px 60px -30px oklch(0.24 0.02 55 / 0.35);
+  --destructive-foreground: oklch(0.98 0.006 85);
+  --border: oklch(0.885 0.008 262);
+  --input: oklch(0.87 0.01 262);
+  --ring: oklch(0.31 0.062 263);
+  /* Brand surfaces */
+  --navy: oklch(0.215 0.048 263);
+  --navy-soft: oklch(0.28 0.052 263);
+  --navy-foreground: oklch(0.96 0.006 85);
+  --gold: oklch(0.74 0.082 82);
+  --sand: oklch(0.948 0.01 82);
+  --espresso: oklch(0.215 0.048 263);
+  --espresso-foreground: oklch(0.96 0.006 85);
+  --clay: oklch(0.74 0.082 82);
+  --shadow-soft: 0 20px 50px -32px oklch(0.22 0.05 263 / 0.4);
 }
 
 @layer base {
@@ -88,11 +89,18 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   h1,
@@ -102,6 +110,12 @@
     font-family: var(--font-display);
     font-weight: 500;
     letter-spacing: -0.01em;
+    line-height: 1.12;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 3px;
   }
 }
 
@@ -111,18 +125,95 @@
 
 @utility eyebrow {
   font-size: 0.75rem;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  line-height: 1.4;
 }
 
 @utility shadow-soft {
   box-shadow: var(--shadow-soft);
 }
 
+/* ---------------------------------------------------------------- buttons */
+
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+@utility btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  border-color: var(--color-primary);
+  &:hover {
+    background-color: var(--color-navy);
+    border-color: var(--color-navy);
+  }
+}
+
+@utility btn-outline {
+  background-color: transparent;
+  color: var(--color-foreground);
+  border-color: var(--color-input);
+  &:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+}
+
+@utility btn-on-navy {
+  background-color: transparent;
+  color: var(--color-navy-foreground);
+  border-color: color-mix(in oklab, var(--color-navy-foreground) 55%, transparent);
+  &:hover {
+    background-color: var(--color-navy-foreground);
+    color: var(--color-navy);
+  }
+}
+
+@utility btn-gold {
+  background-color: var(--color-gold);
+  color: var(--color-accent-foreground);
+  border-color: var(--color-gold);
+  &:hover {
+    background-color: color-mix(in oklab, var(--color-gold) 85%, black);
+  }
+}
+
+@utility field {
+  display: block;
+  width: 100%;
+  min-height: 3rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-card);
+  border: 1px solid var(--color-input);
+  color: var(--color-foreground);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+  &:focus {
+    border-color: var(--color-primary);
+  }
+}
+
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
@@ -131,6 +222,5 @@
 }
 
 @utility animate-rise {
-  animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-
