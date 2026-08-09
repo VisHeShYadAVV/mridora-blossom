@@ -7,6 +7,7 @@ import {
   collectionName,
   getProduct,
   relatedProducts,
+  type ProductRecord,
 } from "@/data/catalog";
 import { useInquiry } from "@/lib/inquiry";
 
@@ -159,7 +160,7 @@ function ProductDetail() {
           <div className="mx-auto max-w-7xl px-5 lg:px-10">
             <h2 className="text-[clamp(1.5rem,3vw,2.2rem)]">Related Products</h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {related.map((item) => (
+              {related.map((item: ProductRecord) => (
                 <ProductCard key={item.sku} product={item} />
               ))}
             </div>

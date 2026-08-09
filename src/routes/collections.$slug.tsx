@@ -2,7 +2,12 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 
 import { CtaBand } from "@/components/site/CtaBand";
 import { ProductCard } from "@/components/site/ProductCard";
-import { getCollection, productsByCollection, type CollectionId } from "@/data/catalog";
+import {
+  getCollection,
+  productsByCollection,
+  type CollectionId,
+  type ProductRecord,
+} from "@/data/catalog";
 
 export const Route = createFileRoute("/collections/$slug")({
   loader: ({ params }) => {
@@ -79,7 +84,7 @@ function CollectionDetail() {
             {products.length} Products
           </p>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {products.map((product) => (
+            {products.map((product: ProductRecord) => (
               <ProductCard key={product.sku} product={product} />
             ))}
           </div>
