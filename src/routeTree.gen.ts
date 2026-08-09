@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as OemPrivateLabelRouteImport } from './routes/oem-private-label'
+import { Route as QualityExportRouteImport } from './routes/quality-export'
 import { Route as CollectionsIndexRouteImport } from './routes/collections.index'
 import { Route as CollectionsSlugRouteImport } from './routes/collections.$slug'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
@@ -24,6 +25,11 @@ const IndexRoute = IndexRouteImport.update({
 const OemPrivateLabelRoute = OemPrivateLabelRouteImport.update({
   id: '/oem-private-label',
   path: '/oem-private-label',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QualityExportRoute = QualityExportRouteImport.update({
+  id: '/quality-export',
+  path: '/quality-export',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CollectionsIndexRoute = CollectionsIndexRouteImport.update({
@@ -50,6 +56,7 @@ const ProductsSlugRoute = ProductsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/oem-private-label': typeof OemPrivateLabelRoute
+  '/quality-export': typeof QualityExportRoute
   '/collections/$slug': typeof CollectionsSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/collections/': typeof CollectionsIndexRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/oem-private-label': typeof OemPrivateLabelRoute
+  '/quality-export': typeof QualityExportRoute
   '/collections/$slug': typeof CollectionsSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/collections': typeof CollectionsIndexRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/oem-private-label': typeof OemPrivateLabelRoute
+  '/quality-export': typeof QualityExportRoute
   '/collections/$slug': typeof CollectionsSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/collections/': typeof CollectionsIndexRoute
@@ -77,6 +86,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/oem-private-label'
+    | '/quality-export'
     | '/collections/$slug'
     | '/products/$slug'
     | '/collections/'
@@ -85,6 +95,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/oem-private-label'
+    | '/quality-export'
     | '/collections/$slug'
     | '/products/$slug'
     | '/collections'
@@ -93,6 +104,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/oem-private-label'
+    | '/quality-export'
     | '/collections/$slug'
     | '/products/$slug'
     | '/collections/'
@@ -102,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   OemPrivateLabelRoute: typeof OemPrivateLabelRoute
+  QualityExportRoute: typeof QualityExportRoute
   CollectionsSlugRoute: typeof CollectionsSlugRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
   CollectionsIndexRoute: typeof CollectionsIndexRoute
@@ -122,6 +135,13 @@ declare module '@tanstack/react-router' {
       path: '/oem-private-label'
       fullPath: '/oem-private-label'
       preLoaderRoute: typeof OemPrivateLabelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quality-export': {
+      id: '/quality-export'
+      path: '/quality-export'
+      fullPath: '/quality-export'
+      preLoaderRoute: typeof QualityExportRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/collections/': {
@@ -158,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   OemPrivateLabelRoute: OemPrivateLabelRoute,
+  QualityExportRoute: QualityExportRoute,
   CollectionsSlugRoute: CollectionsSlugRoute,
   ProductsSlugRoute: ProductsSlugRoute,
   CollectionsIndexRoute: CollectionsIndexRoute,
