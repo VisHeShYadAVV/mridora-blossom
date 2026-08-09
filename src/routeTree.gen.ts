@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as OemPrivateLabelRouteImport } from './routes/oem-private-label'
 import { Route as QualityExportRouteImport } from './routes/quality-export'
+import { Route as RequestQuoteRouteImport } from './routes/request-quote'
 import { Route as CollectionsIndexRouteImport } from './routes/collections.index'
 import { Route as CollectionsSlugRouteImport } from './routes/collections.$slug'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
@@ -36,6 +37,11 @@ const OemPrivateLabelRoute = OemPrivateLabelRouteImport.update({
 const QualityExportRoute = QualityExportRouteImport.update({
   id: '/quality-export',
   path: '/quality-export',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RequestQuoteRoute = RequestQuoteRouteImport.update({
+  id: '/request-quote',
+  path: '/request-quote',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CollectionsIndexRoute = CollectionsIndexRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/oem-private-label': typeof OemPrivateLabelRoute
   '/quality-export': typeof QualityExportRoute
+  '/request-quote': typeof RequestQuoteRoute
   '/collections/$slug': typeof CollectionsSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/collections/': typeof CollectionsIndexRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/oem-private-label': typeof OemPrivateLabelRoute
   '/quality-export': typeof QualityExportRoute
+  '/request-quote': typeof RequestQuoteRoute
   '/collections/$slug': typeof CollectionsSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/collections': typeof CollectionsIndexRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/oem-private-label': typeof OemPrivateLabelRoute
   '/quality-export': typeof QualityExportRoute
+  '/request-quote': typeof RequestQuoteRoute
   '/collections/$slug': typeof CollectionsSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/collections/': typeof CollectionsIndexRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/oem-private-label'
     | '/quality-export'
+    | '/request-quote'
     | '/collections/$slug'
     | '/products/$slug'
     | '/collections/'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/oem-private-label'
     | '/quality-export'
+    | '/request-quote'
     | '/collections/$slug'
     | '/products/$slug'
     | '/collections'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/oem-private-label'
     | '/quality-export'
+    | '/request-quote'
     | '/collections/$slug'
     | '/products/$slug'
     | '/collections/'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   OemPrivateLabelRoute: typeof OemPrivateLabelRoute
   QualityExportRoute: typeof QualityExportRoute
+  RequestQuoteRoute: typeof RequestQuoteRoute
   CollectionsSlugRoute: typeof CollectionsSlugRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
   CollectionsIndexRoute: typeof CollectionsIndexRoute
@@ -162,6 +175,13 @@ declare module '@tanstack/react-router' {
       path: '/quality-export'
       fullPath: '/quality-export'
       preLoaderRoute: typeof QualityExportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/request-quote': {
+      id: '/request-quote'
+      path: '/request-quote'
+      fullPath: '/request-quote'
+      preLoaderRoute: typeof RequestQuoteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/collections/': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   OemPrivateLabelRoute: OemPrivateLabelRoute,
   QualityExportRoute: QualityExportRoute,
+  RequestQuoteRoute: RequestQuoteRoute,
   CollectionsSlugRoute: CollectionsSlugRoute,
   ProductsSlugRoute: ProductsSlugRoute,
   CollectionsIndexRoute: CollectionsIndexRoute,
