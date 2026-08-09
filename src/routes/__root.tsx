@@ -11,6 +11,10 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { InquiryProvider } from "../lib/inquiry";
+import { SiteHeader } from "../components/site/SiteHeader";
+import { SiteBottom } from "../components/site/SiteBottom";
+import { InquiryDrawer } from "../components/site/InquiryDrawer";
 
 function NotFoundComponent() {
   return (
@@ -127,8 +131,15 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <InquiryProvider>
+        <SiteHeader />
+        <main className="min-h-screen bg-background">
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </main>
+        <SiteBottom />
+        <InquiryDrawer />
+      </InquiryProvider>
     </QueryClientProvider>
   );
 }
