@@ -11,6 +11,10 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { InquiryProvider } from "../lib/inquiry";
+import { SiteHeader } from "../components/site/SiteHeader";
+import { SiteBottom } from "../components/site/SiteBottom";
+import { InquiryDrawer } from "../components/site/InquiryDrawer";
 
 function NotFoundComponent() {
   return (
