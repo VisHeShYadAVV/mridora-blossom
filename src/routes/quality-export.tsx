@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { CtaBand } from "@/components/site/CtaBand";
 
-const title = "Quality Control & Export Process — MRIDORA GLOBAL";
+const title = "Quality Control & Export Process — MRIDORA";
 const description =
-  "How MRIDORA GLOBAL handles ceramic quality checks, packaging, documentation and shipment coordination for international buyers. Certifications available on request.";
+  "How MRIDORA handles ceramic quality checks, packaging, documentation and shipment coordination for international buyers. Certifications available on request.";
 
 export const Route = createFileRoute("/quality-export")({
   head: () => ({

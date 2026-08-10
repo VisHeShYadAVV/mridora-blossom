@@ -21,7 +21,7 @@ export function CtaBand({
           <Link to="/request-quote" className="btn btn-gold w-full sm:w-auto">
             Request a Quote
           </Link>
-          <a href="mailto:exports@mridora.com" className="btn btn-on-navy w-full sm:w-auto">
+          <a href="mailto:export@mridoraglobal.com" className="btn btn-on-navy w-full sm:w-auto">
             Email Export Desk
           </a>
         </div>

@@ -12,9 +12,9 @@ import {
   type CollectionId,
 } from "@/data/catalog";
 
-const title = "Ceramic Product Catalogue — MRIDORA GLOBAL";
+const title = "Ceramic Product Catalogue — MRIDORA";
 const description =
-  "Search and filter the MRIDORA GLOBAL ceramic export catalogue by collection and category. Tableware, hotelware, decorative ceramics and OEM-ready products with SKU references.";
+  "Search and filter the MRIDORA ceramic export catalogue by collection and category. Tableware, hotelware, decorative ceramics and OEM-ready products with SKU references.";
 
 export const Route = createFileRoute("/products/")({
   head: () => ({

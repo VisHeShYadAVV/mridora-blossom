@@ -5,9 +5,9 @@ import { ProductCard } from "@/components/site/ProductCard";
 import hero from "@/assets/hero-ceramics.jpg";
 import { COLLECTIONS, PRODUCTS } from "@/data/catalog";
 
-const title = "MRIDORA GLOBAL — Ceramic Sourcing & Merchant Exports from India";
+const title = "MRIDORA — Ceramic Sourcing & Merchant Exports from India";
 const description =
-  "MRIDORA GLOBAL is an Indian ceramic sourcing and merchant export company supplying tableware, hotelware, decorative ceramics and OEM private-label programmes to importers, hospitality groups and retailers worldwide.";
+  "MRIDORA is an Indian ceramic sourcing and merchant export company supplying tableware, hotelware, decorative ceramics and OEM private-label programmes to importers, hospitality groups and retailers worldwide.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -64,7 +64,7 @@ function Home() {
             Indian ceramics, sourced and exported to buyer specification.
           </h1>
           <p className="mt-7 max-w-2xl text-lg text-navy-foreground/80">
-            MRIDORA GLOBAL is a merchant exporter. We source tableware, hotelware and decorative
+            MRIDORA is a merchant exporter. We source tableware, hotelware and decorative
             ceramics from Indian manufacturing partners and manage specification, inspection
             coordination and export logistics for international buyers.
           </p>

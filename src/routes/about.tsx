@@ -3,9 +3,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { CtaBand } from "@/components/site/CtaBand";
 import image from "@/assets/col-artisan.jpg";
 
-const title = "About MRIDORA GLOBAL — Ceramic Sourcing & Merchant Export";
+const title = "About MRIDORA — Ceramic Sourcing & Merchant Export";
 const description =
-  "MRIDORA GLOBAL is an India-based ceramic sourcing and merchant export company serving importers, distributors, hospitality groups and retailers across the Gulf, Europe, North America and Asia Pacific.";
+  "MRIDORA is an India-based ceramic sourcing and merchant export company serving importers, distributors, hospitality groups and retailers across the Gulf, Europe, North America and Asia Pacific.";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -51,7 +51,7 @@ function AboutPage() {
             An India-based ceramic sourcing and export company.
           </h1>
           <p className="mt-6 max-w-2xl text-navy-foreground/75">
-            MRIDORA GLOBAL connects international buyers with Indian ceramic production. Our work
+            MRIDORA connects international buyers with Indian ceramic production. Our work
             sits between the buyer's specification and the factory floor: selection, development,
             follow-up and export execution.
           </p>

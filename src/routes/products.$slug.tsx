@@ -21,13 +21,13 @@ export const Route = createFileRoute("/products/$slug")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "Product not found — MRIDORA GLOBAL" },
+          { title: "Product not found — MRIDORA" },
           { name: "robots", content: "noindex" },
         ],
       };
     }
     const { product } = loaderData;
-    const title = `${product.name} (${product.sku}) — MRIDORA GLOBAL`;
+    const title = `${product.name} (${product.sku}) — MRIDORA`;
     const description = `${product.shortDescription} ${product.keyDimension}. Export supply from India; minimum quantity and lead time confirmed on enquiry.`;
     return {
       meta: [

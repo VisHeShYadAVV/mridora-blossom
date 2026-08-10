@@ -18,10 +18,10 @@ export const Route = createFileRoute("/collections/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Collection not found — MRIDORA GLOBAL" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Collection not found — MRIDORA" }, { name: "robots", content: "noindex" }],
       };
     }
-    const title = `${loaderData.collection.name} Ceramics — MRIDORA GLOBAL`;
+    const title = `${loaderData.collection.name} Ceramics — MRIDORA`;
     const description = loaderData.collection.shortDescription;
     return {
       meta: [

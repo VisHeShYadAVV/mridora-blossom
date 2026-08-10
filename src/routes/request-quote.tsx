@@ -3,9 +3,9 @@ import { useState } from "react";
 
 import { formatInquiryLines, useInquiry } from "@/lib/inquiry";
 
-const title = "Request a Quote — MRIDORA GLOBAL Ceramic Exports";
+const title = "Request a Quote — MRIDORA Ceramic Exports";
 const description =
-  "Submit a bulk ceramic enquiry to MRIDORA GLOBAL. Share product references, quantities and destination market, and our export desk will respond with feasibility and pricing.";
+  "Submit a bulk ceramic enquiry to MRIDORA. Share product references, quantities and destination market, and our export desk will respond with feasibility and pricing.";
 
 export const Route = createFileRoute("/request-quote")({
   head: () => ({
@@ -89,7 +89,7 @@ function RequestQuotePage() {
       get("notes") || "—",
     ].join("\n");
 
-    window.location.href = `mailto:exports@mridora.com?subject=${encodeURIComponent(
+    window.location.href = `mailto:export@mridoraglobal.com?subject=${encodeURIComponent(
       `Quote Request — ${get("company") || get("name")}`,
     )}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
@@ -252,7 +252,7 @@ function RequestQuotePage() {
             {submitted && (
               <p className="mt-5 text-sm text-muted-foreground" role="status">
                 Your email application should open with the request prepared. If it does not, write
-                to exports@mridora.com and we will pick it up from there.
+                to export@mridoraglobal.com and we will pick it up from there.
               </p>
             )}
           </form>

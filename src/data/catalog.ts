@@ -25,7 +25,7 @@ import colWhiteMinimal from "@/assets/col-white-minimal.jpg";
 export const ON_REQUEST = "Available on Request";
 export const TO_BE_CONFIRMED = "To Be Confirmed";
 
-export type CategoryId = "tableware" | "hotelware" | "decorative" | "oem";
+export type CategoryId = "tableware" | "hotelware" | "serveware" | "decorative";
 export type CollectionId =
   | "mughal-heritage"
   | "white-minimal"
@@ -142,18 +142,18 @@ export const CATEGORIES: CategoryRecord[] = [
     href: "/products",
   },
   {
+    id: "serveware",
+    name: "Serveware",
+    description:
+      "Platters, serving bowls, chargers and presentation pieces for table and buffet service.",
+    href: "/products",
+  },
+  {
     id: "decorative",
     name: "Decorative Ceramics",
     description:
       "Vases, urns, jars, planters, bowls and statement decorative pieces.",
     href: "/products",
-  },
-  {
-    id: "oem",
-    name: "OEM & Private Label",
-    description:
-      "Custom product development, branding, packaging and buyer-specific programs.",
-    href: "/oem-private-label",
   },
 ];
 
@@ -396,7 +396,7 @@ export const PRODUCTS: ProductRecord[] = [
     imageAlt: "Mughal Border Serving Bowl 07 — Serving bowl with painted interior band and matte exterior.",
     additionalImages: [],
     collection: "mughal-heritage",
-    category: "tableware",
+    category: "serveware",
     shortDescription: "Serving bowl with painted interior band and matte exterior.",
     keyDimension: "Diameter 7 in",
     material: "Ceramic (stoneware body)",
@@ -549,7 +549,7 @@ export const PRODUCTS: ProductRecord[] = [
     imageAlt: "Minimal Oval Platter 14 — Oval platter for shared plates and buffet presentation.",
     additionalImages: [],
     collection: "white-minimal",
-    category: "tableware",
+    category: "serveware",
     shortDescription: "Oval platter for shared plates and buffet presentation.",
     keyDimension: "Length 14 in",
     material: "Ceramic (porcelain body)",
@@ -571,7 +571,7 @@ export const PRODUCTS: ProductRecord[] = [
     imageAlt: "Minimal Oval Platter 12 — Compact oval platter for à la carte service.",
     additionalImages: [],
     collection: "white-minimal",
-    category: "tableware",
+    category: "serveware",
     shortDescription: "Compact oval platter for à la carte service.",
     keyDimension: "Length 12 in",
     material: "Ceramic (porcelain body)",
@@ -681,7 +681,7 @@ export const PRODUCTS: ProductRecord[] = [
     imageAlt: "Artisan Reactive Serving Bowl 10 — Wide serving bowl with speckled reactive surface.",
     additionalImages: [],
     collection: "artisan-fusion",
-    category: "tableware",
+    category: "serveware",
     shortDescription: "Wide serving bowl with speckled reactive surface.",
     keyDimension: "Diameter 10 in",
     material: "Ceramic (stoneware body)",
@@ -703,7 +703,7 @@ export const PRODUCTS: ProductRecord[] = [
     imageAlt: "Artisan Reactive Serving Bowl 08 — Mid-size reactive-glaze bowl for shared service.",
     additionalImages: [],
     collection: "artisan-fusion",
-    category: "tableware",
+    category: "serveware",
     shortDescription: "Mid-size reactive-glaze bowl for shared service.",
     keyDimension: "Diameter 8 in",
     material: "Ceramic (stoneware body)",
@@ -876,7 +876,7 @@ export const PRODUCTS: ProductRecord[] = [
     imageAlt: "Divided Service Platter — 3 Compartment — Three-compartment platter for banquet and buffet service.",
     additionalImages: [],
     collection: "heavy-duty-hotelware",
-    category: "hotelware",
+    category: "serveware",
     shortDescription: "Three-compartment platter for banquet and buffet service.",
     keyDimension: "Diameter 11 in",
     material: "Ceramic (vitrified hotelware body)",
@@ -898,7 +898,7 @@ export const PRODUCTS: ProductRecord[] = [
     imageAlt: "Divided Service Platter — 2 Compartment — Two-compartment platter for portioned plating.",
     additionalImages: [],
     collection: "heavy-duty-hotelware",
-    category: "hotelware",
+    category: "serveware",
     shortDescription: "Two-compartment platter for portioned plating.",
     keyDimension: "Diameter 10 in",
     material: "Ceramic (vitrified hotelware body)",
@@ -1053,7 +1053,7 @@ export const PRODUCTS: ProductRecord[] = [
     imageAlt: "Heavy-Duty Oval Platter 16 — Large oval platter for buffet and banquet lines.",
     additionalImages: [],
     collection: "heavy-duty-hotelware",
-    category: "hotelware",
+    category: "serveware",
     shortDescription: "Large oval platter for buffet and banquet lines.",
     keyDimension: "Length 16 in",
     material: "Ceramic (vitrified hotelware body)",
@@ -1075,7 +1075,7 @@ export const PRODUCTS: ProductRecord[] = [
     imageAlt: "Heavy-Duty Oval Platter 13 — Oval platter for restaurant shared-plate service.",
     additionalImages: [],
     collection: "heavy-duty-hotelware",
-    category: "hotelware",
+    category: "serveware",
     shortDescription: "Oval platter for restaurant shared-plate service.",
     keyDimension: "Length 13 in",
     material: "Ceramic (vitrified hotelware body)",
