@@ -210,11 +210,71 @@ function Home() {
         </div>
       </section>
 
+      <section className="bg-sand py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-5 lg:px-10">
+          <div className="max-w-3xl">
+            <p className="text-[11px] uppercase tracking-[0.22em] text-primary">Why MRIDORA</p>
+            <h2 className="mt-5 text-[clamp(1.8rem,3.6vw,2.7rem)] leading-tight">
+              A single point of contact between your specification and Indian production.
+            </h2>
+          </div>
+          <div className="mt-12 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+            {WHY_MRIDORA.map((item) => (
+              <div key={item.title} className="bg-card p-7">
+                <h3 className="text-lg">{item.title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-5 lg:px-10 grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.22em] text-primary">Sourcing Base</p>
+            <h2 className="mt-5 text-[clamp(1.8rem,3.6vw,2.7rem)] leading-tight">
+              Sourcing from Khurja, India
+            </h2>
+            <p className="mt-6 text-muted-foreground">
+              Khurja, in Uttar Pradesh, is one of India's long-established ceramic manufacturing
+              clusters, with units producing tableware, hotelware, serveware and decorative
+              ceramics. We source from Khurja and other Indian ceramic clusters, selecting a unit
+              according to the body, shape and decoration a buyer requires.
+            </p>
+            <p className="mt-4 text-muted-foreground">
+              Because production is spread across specialised units, we confirm feasibility,
+              minimum quantities and lead times per programme rather than quoting a single
+              standard capability. We do not own a factory and do not present partner facilities
+              as our own.
+            </p>
+            <Link to="/about" className="btn btn-outline mt-8">
+              About Our Sourcing Model
+            </Link>
+          </div>
+          <img
+            src={hero}
+            alt="Indian ceramic tableware and decorative pieces arranged for export inspection"
+            width={1200}
+            height={900}
+            loading="lazy"
+            className="aspect-[4/3] w-full border border-border object-cover"
+          />
+        </div>
+      </section>
+
       <section className="border-y border-border py-16">
         <div className="mx-auto max-w-7xl px-5 lg:px-10">
-          <p className="text-[11px] uppercase tracking-[0.22em] text-primary">Buyer Markets</p>
-          <ul className="mt-6 flex flex-wrap gap-x-10 gap-y-3">
-            {MARKETS.map((market) => (
+          <p className="text-[11px] uppercase tracking-[0.22em] text-primary">Target Markets</p>
+          <ul className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
+            {GULF_MARKETS.map((market) => (
+              <li key={market} className="text-lg">
+                {market}
+              </li>
+            ))}
+          </ul>
+          <ul className="mt-5 flex flex-wrap gap-x-8 gap-y-3">
+            {OTHER_MARKETS.map((market) => (
               <li key={market} className="text-lg text-muted-foreground">
                 {market}
               </li>
@@ -222,6 +282,7 @@ function Home() {
           </ul>
         </div>
       </section>
+
 
       <CtaBand
         title="Share your requirement and we will revert with a sourcing proposal."
