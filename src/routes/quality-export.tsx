@@ -37,6 +37,25 @@ const CHECKS = [
   },
 ];
 
+const COMPLIANCE = [
+  {
+    title: "Food-Contact Testing",
+    body: "For tableware, hotelware and serveware intended for food contact, testing can be arranged through accredited laboratories against the standard applicable to your destination market.",
+  },
+  {
+    title: "Lead & Cadmium Testing",
+    body: "Lead and cadmium release testing on glazed and decorated surfaces can be arranged per production lot, at buyer cost, with reports issued by the testing laboratory.",
+  },
+  {
+    title: "Third-Party Inspection",
+    body: "Inspection by an agency of the buyer's choice can be coordinated at the partner unit before dispatch, including AQL sampling on request.",
+  },
+  {
+    title: "Destination-Market Requirements",
+    body: "Share the regulations, marking and documentation your market requires and we will confirm with the production partner what can be met for that order.",
+  },
+];
+
 const EXPORT_STEPS = [
   {
     title: "Packing",
