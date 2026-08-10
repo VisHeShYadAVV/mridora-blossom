@@ -147,7 +147,7 @@ function Home() {
             </p>
           </div>
 
-          <div className="mt-14 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
             {CAPABILITIES.map((item) => (
               <div key={item.title} className="bg-card p-7">
                 <h3 className="text-lg">{item.title}</h3>
