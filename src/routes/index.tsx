@@ -158,16 +158,46 @@ function Home() {
         </div>
       </section>
 
+      <section className="border-t border-border py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-5 lg:px-10">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.22em] text-primary">
+                Product Categories
+              </p>
+              <h2 className="mt-4 text-[clamp(1.8rem,3.6vw,2.7rem)]">
+                Tableware · Hotelware · Serveware · Decorative Ceramics
+              </h2>
+            </div>
+            <Link to="/products" className="btn btn-outline">
+              Browse Catalogue
+            </Link>
+          </div>
+
+          <div className="mt-12 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+            {CATEGORIES.map((category) => (
+              <Link key={category.id} to="/products" className="bg-card p-7 hover:bg-sand">
+                <h3 className="text-lg">{category.name}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{category.description}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-sand py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-5 lg:px-10">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.22em] text-primary">Our Range</p>
+              <p className="text-[11px] uppercase tracking-[0.22em] text-primary">
+                Design Collections
+              </p>
               <h2 className="mt-4 text-[clamp(1.8rem,3.6vw,2.7rem)]">Collections</h2>
             </div>
             <Link to="/collections" className="btn btn-outline">
               All Collections
             </Link>
+
           </div>
 
           <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
