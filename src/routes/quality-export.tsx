@@ -105,6 +105,32 @@ function QualityExportPage() {
         </div>
       </section>
 
+      <section id="compliance-testing" className="border-y border-border bg-sand py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-5 lg:px-10">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-primary">
+            Compliance &amp; Testing
+          </p>
+          <h2 className="mt-4 max-w-3xl text-[clamp(1.6rem,3.2vw,2.4rem)]">
+            Testing arranged against the requirements of your market.
+          </h2>
+          <div className="mt-10 grid gap-px border border-border bg-border sm:grid-cols-2">
+            {COMPLIANCE.map((item) => (
+              <div key={item.title} className="bg-card p-7">
+                <h3 className="text-lg">{item.title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{item.body}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 max-w-3xl text-sm text-muted-foreground">
+            We do not hold or claim BIS registration, QCO coverage or any other certification
+            unless an actual applicable certificate exists for the product concerned. Where a
+            certificate or test report is required, we confirm with the production partner what can
+            be obtained, the cost and the timeline, before the order is placed.
+          </p>
+        </div>
+      </section>
+
+
       <section className="bg-sand py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-10">
           <h2 className="text-[clamp(1.6rem,3.2vw,2.4rem)]">Export process</h2>
