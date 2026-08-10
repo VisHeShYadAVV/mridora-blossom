@@ -21,13 +21,13 @@ export const Route = createFileRoute("/products/$slug")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "Product not found — MRIDORA GLOBAL" },
+          { title: "Product not found — MRIDORA" },
           { name: "robots", content: "noindex" },
         ],
       };
     }
     const { product } = loaderData;
-    const title = `${product.name} (${product.sku}) — MRIDORA GLOBAL`;
+    const title = `${product.name} (${product.sku}) — MRIDORA`;
     const description = `${product.shortDescription} ${product.keyDimension}. Export supply from India; minimum quantity and lead time confirmed on enquiry.`;
     return {
       meta: [
@@ -65,22 +65,25 @@ function ProductDetail() {
     ["SKU", product.sku],
     ["Collection", collectionName(product.collection)],
     ["Category", categoryName(product.category)],
-    ["Key Dimension", product.keyDimension],
-    ...(product.capacity ? ([["Capacity", product.capacity]] as Array<[string, string]>) : []),
+    ["Dimensions", product.keyDimension],
+    ["Capacity", product.capacity ?? "Available on Request"],
+    ["Unit Weight", "Available on Request"],
     ["Material", product.material],
     ["Finish", product.finish],
     ["Colour", product.color],
-    ["Minimum Order Quantity", product.moq],
+    ["Minimum Order Quantity (MOQ)", product.moq],
     ["Lead Time", product.leadTime],
     ...(product.foodSafety
       ? ([["Food Contact Suitability", product.foodSafety]] as Array<[string, string]>)
       : []),
-    ["OEM Development", product.oemAvailable ? "Available on Request" : "Not offered"],
     [
-      "Private Label / Branding",
-      product.privateLabelAvailable ? "Available on Request" : "Not offered",
+      "Customization / Private Label",
+      product.oemAvailable || product.privateLabelAvailable
+        ? "Shape, decoration, branding and packaging customisation available on request"
+        : "Not offered",
     ],
-    ["Export Packaging", product.exportPackaging],
+    ["OEM Development", product.oemAvailable ? "Available on Request" : "Not offered"],
+    ["Export Packing", product.exportPackaging],
   ];
 
   return (
