@@ -105,14 +105,22 @@ function Home() {
           <p className="text-[11px] uppercase tracking-[0.24em] text-gold">
             Ceramic Sourcing &amp; Merchant Exports · India
           </p>
-          <h1 className="mt-6 max-w-3xl text-navy-foreground text-[clamp(2.4rem,6vw,4.6rem)] leading-[1.05]">
-            Indian ceramics, sourced and exported to buyer specification.
+          <h1 className="mt-6 max-w-3xl text-navy-foreground text-[clamp(2.1rem,5.4vw,4.2rem)] leading-[1.06]">
+            Indian Ceramic Tableware, Hotelware &amp; Decorative Ceramics
           </h1>
           <p className="mt-7 max-w-2xl text-lg text-navy-foreground/80">
-            MRIDORA is a merchant exporter. We source tableware, hotelware and decorative
-            ceramics from Indian manufacturing partners and manage specification, inspection
-            coordination and export logistics for international buyers.
+            Sourced from established Indian ceramic manufacturers and exported to international
+            buyers.
           </p>
+          <ul className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs uppercase tracking-[0.16em] text-navy-foreground/70">
+            {BUYER_SEGMENTS.map((segment, index) => (
+              <li key={segment} className="flex items-center gap-4">
+                {index > 0 && <span aria-hidden="true" className="text-gold">·</span>}
+                {segment}
+              </li>
+            ))}
+          </ul>
+
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Link to="/collections" className="btn btn-gold">
               View Collections
