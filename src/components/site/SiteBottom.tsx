@@ -10,6 +10,9 @@ export function SiteBottom() {
       <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-6 text-xs tracking-wide text-muted-foreground sm:flex-row sm:items-center sm:justify-between lg:px-10">
         <p>© {new Date().getFullYear()} MRIDORA · Ceramic Sourcing &amp; Merchant Exports · India</p>
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+          <a href="mailto:info@mridoraglobal.com" className="hover:text-foreground">
+            info@mridoraglobal.com
+          </a>
           <a href="mailto:export@mridoraglobal.com" className="hover:text-foreground">
             export@mridoraglobal.com
           </a>
