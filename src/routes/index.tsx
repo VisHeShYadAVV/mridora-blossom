@@ -5,9 +5,9 @@ import { ProductCard } from "@/components/site/ProductCard";
 import hero from "@/assets/hero-ceramics.jpg";
 import { COLLECTIONS, PRODUCTS } from "@/data/catalog";
 
-const title = "MRIDORA — Ceramic Sourcing & Merchant Exports from India";
+const title = "Indian Ceramic Tableware, Hotelware & Decorative Ceramics — MRIDORA";
 const description =
-  "MRIDORA is an Indian ceramic sourcing and merchant export company supplying tableware, hotelware, decorative ceramics and OEM private-label programmes to importers, hospitality groups and retailers worldwide.";
+  "MRIDORA sources Indian ceramic tableware, hotelware, serveware and decorative ceramics from established manufacturers and exports to importers, distributors, HORECA and retail buyers worldwide.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -16,10 +16,19 @@ export const Route = createFileRoute("/")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Home,
 });
+
+const BUYER_SEGMENTS = [
+  "OEM & Private Label",
+  "HORECA",
+  "Retail",
+  "Importers & Distributors",
+];
 
 const CAPABILITIES = [
   {
@@ -27,20 +36,56 @@ const CAPABILITIES = [
     body: "We work with established ceramic manufacturing clusters in India and match each enquiry to a suitable production partner.",
   },
   {
-    title: "Export Documentation",
-    body: "Commercial documentation, packing lists and shipment coordination handled by our export desk.",
-  },
-  {
     title: "OEM & Private Label",
     body: "Buyer-specific shapes, decoration, branding and packaging developed against your specification.",
   },
   {
-    title: "Inspection Support",
-    body: "Pre-shipment checks coordinated with production partners and, where required, third-party inspection agencies.",
+    title: "Export Packaging",
+    body: "Inner protection, master cartons, carton marking and palletisation planned per product fragility and destination handling.",
+  },
+  {
+    title: "Documentation",
+    body: "Commercial invoice, packing list and standard export paperwork prepared by our export desk; market-specific documents on request.",
+  },
+  {
+    title: "Inspection Coordination",
+    body: "Pre-shipment checks coordinated with production partners and, where required, third-party inspection agencies at buyer cost.",
+  },
+  {
+    title: "Samples & Shipping Support",
+    body: "Sample development and dispatch, freight coordination with forwarders and dispatch updates through to shipment.",
   },
 ];
 
-const MARKETS = ["Gulf & Middle East", "Europe", "North America", "Asia Pacific"];
+const WHY_MRIDORA = [
+  {
+    title: "Sourcing network",
+    body: "Direct working relationships with Indian ceramic units, so each requirement is placed with a unit suited to that shape, body and decoration.",
+  },
+  {
+    title: "Khurja & Indian manufacturing access",
+    body: "Access to Khurja and other Indian ceramic clusters for tableware, hotelware, serveware and decorative production.",
+  },
+  {
+    title: "Quality coordination",
+    body: "Specification sign-off, in-production review and pre-shipment checks coordinated on the buyer's behalf.",
+  },
+  {
+    title: "Customization",
+    body: "Shape, glaze, decoration, branding and packaging adjusted to buyer specification, subject to production feasibility.",
+  },
+  {
+    title: "Export packaging",
+    body: "Packing planned for long-haul ceramic freight, with buyer carton marking and palletisation options.",
+  },
+  {
+    title: "Documentation",
+    body: "Export documentation handled in-house and aligned with destination-market requirements confirmed per order.",
+  },
+];
+
+const GULF_MARKETS = ["UAE", "Saudi Arabia", "Qatar", "Oman", "Kuwait", "Bahrain"];
+const OTHER_MARKETS = ["Europe", "North America", "Asia Pacific"];
 
 function Home() {
   const featured = PRODUCTS.slice(0, 8);
