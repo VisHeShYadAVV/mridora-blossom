@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { CtaBand } from "@/components/site/CtaBand";
 import { ProductCard } from "@/components/site/ProductCard";
 import hero from "@/assets/hero-ceramics.jpg";
-import { COLLECTIONS, PRODUCTS } from "@/data/catalog";
+import { CATEGORIES, COLLECTIONS, PRODUCTS } from "@/data/catalog";
 
 const title = "Indian Ceramic Tableware, Hotelware & Decorative Ceramics — MRIDORA";
 const description =
