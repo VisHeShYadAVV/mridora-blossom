@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { CtaBand } from "@/components/site/CtaBand";
 
-const title = "Quality Control & Export Process — MRIDORA GLOBAL";
+const title = "Quality Control & Export Process — MRIDORA";
 const description =
-  "How MRIDORA GLOBAL handles ceramic quality checks, packaging, documentation and shipment coordination for international buyers. Certifications available on request.";
+  "How MRIDORA handles ceramic quality checks, packaging, documentation and shipment coordination for international buyers. Certifications available on request.";
 
 export const Route = createFileRoute("/quality-export")({
   head: () => ({
@@ -34,6 +34,25 @@ const CHECKS = [
   {
     title: "Testing & Certification",
     body: "Test reports and certifications relevant to your market can be arranged on request through accredited laboratories, subject to product and cost confirmation.",
+  },
+];
+
+const COMPLIANCE = [
+  {
+    title: "Food-Contact Testing",
+    body: "For tableware, hotelware and serveware intended for food contact, testing can be arranged through accredited laboratories against the standard applicable to your destination market.",
+  },
+  {
+    title: "Lead & Cadmium Testing",
+    body: "Lead and cadmium release testing on glazed and decorated surfaces can be arranged per production lot, at buyer cost, with reports issued by the testing laboratory.",
+  },
+  {
+    title: "Third-Party Inspection",
+    body: "Inspection by an agency of the buyer's choice can be coordinated at the partner unit before dispatch, including AQL sampling on request.",
+  },
+  {
+    title: "Destination-Market Requirements",
+    body: "Share the regulations, marking and documentation your market requires and we will confirm with the production partner what can be met for that order.",
   },
 ];
 
@@ -85,6 +104,32 @@ function QualityExportPage() {
           </div>
         </div>
       </section>
+
+      <section id="compliance-testing" className="border-y border-border bg-sand py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-5 lg:px-10">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-primary">
+            Compliance &amp; Testing
+          </p>
+          <h2 className="mt-4 max-w-3xl text-[clamp(1.6rem,3.2vw,2.4rem)]">
+            Testing arranged against the requirements of your market.
+          </h2>
+          <div className="mt-10 grid gap-px border border-border bg-border sm:grid-cols-2">
+            {COMPLIANCE.map((item) => (
+              <div key={item.title} className="bg-card p-7">
+                <h3 className="text-lg">{item.title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{item.body}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 max-w-3xl text-sm text-muted-foreground">
+            We do not hold or claim BIS registration, QCO coverage or any other certification
+            unless an actual applicable certificate exists for the product concerned. Where a
+            certificate or test report is required, we confirm with the production partner what can
+            be obtained, the cost and the timeline, before the order is placed.
+          </p>
+        </div>
+      </section>
+
 
       <section className="bg-sand py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-10">

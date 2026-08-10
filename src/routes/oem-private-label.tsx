@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { CtaBand } from "@/components/site/CtaBand";
 import image from "@/assets/col-white-minimal.jpg";
 
-const title = "OEM & Private Label Ceramics — MRIDORA GLOBAL";
+const title = "OEM & Private Label Ceramics — MRIDORA";
 const description =
   "OEM and private-label ceramic development for importers, retailers and hospitality groups: shape development, decoration, branding and packaging, sourced from Indian manufacturing partners.";
 

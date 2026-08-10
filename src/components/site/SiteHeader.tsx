@@ -47,10 +47,10 @@ export function SiteHeader() {
       }`}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5 lg:px-10">
-        <Link to="/" className="flex shrink-0 items-center" aria-label="MRIDORA GLOBAL home">
+        <Link to="/" className="flex shrink-0 items-center" aria-label="MRIDORA home">
           <img
             src="/mridora-logo.png"
-            alt="MRIDORA GLOBAL"
+            alt="MRIDORA"
             width={140}
             height={94}
             className={`h-10 w-auto object-contain transition-all duration-500 ${

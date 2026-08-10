@@ -7,8 +7,8 @@ export function InquiryDrawer() {
 
   if (!isOpen) return null;
 
-  const mailto = `mailto:exports@mridora.com?subject=${encodeURIComponent(
-    "Product Inquiry — MRIDORA GLOBAL",
+  const mailto = `mailto:export@mridoraglobal.com?subject=${encodeURIComponent(
+    "Product Inquiry — MRIDORA",
   )}&body=${encodeURIComponent(
     ["Requested items:", formatInquiryLines(items) || "—", "", "Company:", "Country:", "Notes:"].join(
       "\n",

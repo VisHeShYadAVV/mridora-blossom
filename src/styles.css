@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * MRIDORA GLOBAL design system.
+ * MRIDORA design system.
  * Deep navy / midnight blue, warm ivory, restrained muted gold accents and
  * charcoal typography. All colour values use oklch and are exposed to Tailwind
  * through @theme inline.

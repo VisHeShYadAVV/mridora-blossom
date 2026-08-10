@@ -3,9 +3,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { CtaBand } from "@/components/site/CtaBand";
 import { COLLECTIONS, productsByCollection } from "@/data/catalog";
 
-const title = "Ceramic Collections — MRIDORA GLOBAL";
+const title = "Ceramic Collections — MRIDORA";
 const description =
-  "Browse MRIDORA GLOBAL ceramic collections: Mughal Heritage, White Minimal, Artisan Fusion, Heavy-Duty Hotelware and Majestic Decorative ranges for export buyers.";
+  "Browse MRIDORA ceramic collections: Mughal Heritage, White Minimal, Artisan Fusion, Heavy-Duty Hotelware and Majestic Decorative ranges for export buyers.";
 
 export const Route = createFileRoute("/collections/")({
   head: () => ({
