@@ -70,12 +70,17 @@ function ProductDetail() {
     ["Unit Weight", "Available on Request"],
     ["Material", product.material],
     ["Finish", product.finish],
+    ["Application", categoryName(product.category)],
     ["Colour", product.color],
     ["Minimum Order Quantity (MOQ)", product.moq],
     ["Lead Time", product.leadTime],
     ...(product.foodSafety
       ? ([["Food Contact Suitability", product.foodSafety]] as Array<[string, string]>)
       : []),
+    [
+      "Testing & Documentation",
+      "Product-specific testing and documentation available according to buyer and destination-market requirements",
+    ],
     [
       "Customization / Private Label",
       product.oemAvailable || product.privateLabelAvailable
@@ -136,10 +141,10 @@ function ProductDetail() {
                   onClick={() => (added ? openInquiry() : addProduct(product))}
                   className={`btn ${added ? "btn-outline" : "btn-primary"} sm:flex-1`}
                 >
-                  {added ? "View Inquiry List" : "Add to Inquiry"}
+                  {added ? "View Quote Request" : "Request Export Quote"}
                 </button>
                 <Link to="/request-quote" className="btn btn-outline sm:flex-1">
-                  Request Quote
+                  Send Enquiry Now
                 </Link>
               </div>
 
