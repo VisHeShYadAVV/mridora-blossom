@@ -56,6 +56,52 @@ const COMPLIANCE = [
   },
 ];
 
+const FLOW = [
+  "Buyer Requirement",
+  "Supplier Matching",
+  "Sample",
+  "Specification Approval",
+  "Production",
+  "Quality Control",
+  "Export Packaging",
+  "Container / Shipment",
+];
+
+const SERVICES = [
+  {
+    title: "Supplier Selection",
+    body: "Requirements are matched to Indian manufacturing partners capable of the product, quantity and quality level.",
+  },
+  {
+    title: "Product Specification",
+    body: "Shape, body, glaze, decoration, dimensions and tolerances recorded in a written specification before production.",
+  },
+  {
+    title: "Manufacturing Coordination",
+    body: "Production scheduling and follow-up with the partner unit, with progress reported to the buyer.",
+  },
+  {
+    title: "Quality Inspection",
+    body: "Visual, dimensional and packing checks against the approved sample; third-party inspection coordinated on request.",
+  },
+  {
+    title: "Testing & Documentation",
+    body: "Product-specific testing and documentation available according to buyer and destination-market requirements.",
+  },
+  {
+    title: "Export Packaging",
+    body: "Inner protection, master cartons, palletisation and buyer carton marking planned per product and destination.",
+  },
+  {
+    title: "FCL / LCL Coordination",
+    body: "Full-container and consolidated LCL options reviewed against order size and agreed Incoterms.",
+  },
+  {
+    title: "Export Documentation",
+    body: "Commercial invoice, packing list and standard export paperwork prepared; additional documents arranged on request.",
+  },
+];
+
 const EXPORT_STEPS = [
   {
     title: "Packing",
