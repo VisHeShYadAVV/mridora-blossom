@@ -93,6 +93,41 @@ function QualityExportPage() {
 
       <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-10">
+          <h2 className="text-[clamp(1.6rem,3.2vw,2.4rem)]">From requirement to shipment</h2>
+          <ol className="mt-10 flex flex-col gap-px border border-border bg-border sm:grid sm:grid-cols-2 lg:grid-cols-4">
+            {FLOW.map((stage, index) => (
+              <li key={stage} className="flex items-center gap-4 bg-card p-6">
+                <span className="text-sm tracking-[0.2em] text-gold">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="text-base">{stage}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="border-y border-border bg-sand py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-5 lg:px-10">
+          <h2 className="text-[clamp(1.6rem,3.2vw,2.4rem)]">What we coordinate</h2>
+          <div className="mt-10 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+            {SERVICES.map((item) => (
+              <div key={item.title} className="bg-card p-6">
+                <h3 className="text-base">{item.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{item.body}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 max-w-3xl text-sm text-muted-foreground">
+            Product-specific testing and documentation available according to buyer and
+            destination-market requirements.
+          </p>
+        </div>
+      </section>
+
+
+      <section className="py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-5 lg:px-10">
           <h2 className="text-[clamp(1.6rem,3.2vw,2.4rem)]">Quality control approach</h2>
           <div className="mt-10 grid gap-px border border-border bg-border sm:grid-cols-2">
             {CHECKS.map((item) => (
