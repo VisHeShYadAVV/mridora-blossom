@@ -5,7 +5,7 @@ import { collectionName } from "@/data/catalog";
 import { useInquiry } from "@/lib/inquiry";
 
 export function ProductCard({ product }: { product: ProductRecord }) {
-  const { addProduct, hasProduct } = useInquiry();
+  const { addProduct, hasProduct, openInquiry } = useInquiry();
   const added = hasProduct(product.sku);
 
   return (
@@ -35,18 +35,40 @@ export function ProductCard({ product }: { product: ProductRecord }) {
           </Link>
         </h3>
         <p className="mt-1 text-sm text-muted-foreground">{collectionName(product.collection)}</p>
-        <p className="mt-3 text-sm text-muted-foreground">{product.keyDimension}</p>
+
+        <dl className="mt-4 space-y-1 text-sm text-muted-foreground">
+          <div className="flex gap-2">
+            <dt className="shrink-0 text-foreground/70">Dimensions:</dt>
+            <dd>{product.keyDimension}</dd>
+          </div>
+          {product.capacity && (
+            <div className="flex gap-2">
+              <dt className="shrink-0 text-foreground/70">Capacity:</dt>
+              <dd>{product.capacity}</dd>
+            </div>
+          )}
+          {product.material && (
+            <div className="flex gap-2">
+              <dt className="shrink-0 text-foreground/70">Material:</dt>
+              <dd>{product.material}</dd>
+            </div>
+          )}
+        </dl>
 
         <div className="mt-5 flex flex-1 flex-col justify-end gap-2">
-          <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">
-            Pricing: {product.moq}
-          </p>
+          <Link
+            to="/products/$slug"
+            params={{ slug: product.slug }}
+            className="btn btn-outline w-full"
+          >
+            View Product
+          </Link>
           <button
             type="button"
-            onClick={() => addProduct(product)}
-            className={`btn ${added ? "btn-outline" : "btn-primary"} w-full`}
+            onClick={() => (added ? openInquiry() : addProduct(product))}
+            className="btn btn-primary w-full"
           >
-            {added ? "In Inquiry List" : "Add to Inquiry"}
+            {added ? "In Quote Request" : "Request Export Quote"}
           </button>
         </div>
       </div>

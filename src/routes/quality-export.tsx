@@ -56,6 +56,52 @@ const COMPLIANCE = [
   },
 ];
 
+const FLOW = [
+  "Buyer Requirement",
+  "Supplier Matching",
+  "Sample",
+  "Specification Approval",
+  "Production",
+  "Quality Control",
+  "Export Packaging",
+  "Container / Shipment",
+];
+
+const SERVICES = [
+  {
+    title: "Supplier Selection",
+    body: "Requirements are matched to Indian manufacturing partners capable of the product, quantity and quality level.",
+  },
+  {
+    title: "Product Specification",
+    body: "Shape, body, glaze, decoration, dimensions and tolerances recorded in a written specification before production.",
+  },
+  {
+    title: "Manufacturing Coordination",
+    body: "Production scheduling and follow-up with the partner unit, with progress reported to the buyer.",
+  },
+  {
+    title: "Quality Inspection",
+    body: "Visual, dimensional and packing checks against the approved sample; third-party inspection coordinated on request.",
+  },
+  {
+    title: "Testing & Documentation",
+    body: "Product-specific testing and documentation available according to buyer and destination-market requirements.",
+  },
+  {
+    title: "Export Packaging",
+    body: "Inner protection, master cartons, palletisation and buyer carton marking planned per product and destination.",
+  },
+  {
+    title: "FCL / LCL Coordination",
+    body: "Full-container and consolidated LCL options reviewed against order size and agreed Incoterms.",
+  },
+  {
+    title: "Export Documentation",
+    body: "Commercial invoice, packing list and standard export paperwork prepared; additional documents arranged on request.",
+  },
+];
+
 const EXPORT_STEPS = [
   {
     title: "Packing",
@@ -90,6 +136,41 @@ function QualityExportPage() {
           </p>
         </div>
       </section>
+
+      <section className="py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-5 lg:px-10">
+          <h2 className="text-[clamp(1.6rem,3.2vw,2.4rem)]">From requirement to shipment</h2>
+          <ol className="mt-10 flex flex-col gap-px border border-border bg-border sm:grid sm:grid-cols-2 lg:grid-cols-4">
+            {FLOW.map((stage, index) => (
+              <li key={stage} className="flex items-center gap-4 bg-card p-6">
+                <span className="text-sm tracking-[0.2em] text-gold">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="text-base">{stage}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="border-y border-border bg-sand py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-5 lg:px-10">
+          <h2 className="text-[clamp(1.6rem,3.2vw,2.4rem)]">What we coordinate</h2>
+          <div className="mt-10 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+            {SERVICES.map((item) => (
+              <div key={item.title} className="bg-card p-6">
+                <h3 className="text-base">{item.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{item.body}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 max-w-3xl text-sm text-muted-foreground">
+            Product-specific testing and documentation available according to buyer and
+            destination-market requirements.
+          </p>
+        </div>
+      </section>
+
 
       <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-10">

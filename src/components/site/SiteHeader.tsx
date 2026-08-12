@@ -135,13 +135,14 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="border-t border-border bg-background lg:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col px-5 py-4">
+        <div className="max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-border bg-background lg:hidden">
+          <nav className="mx-auto flex max-w-7xl flex-col px-5 py-2">
             {NAV.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
-                className="flex min-h-12 items-center border-b border-border/60 text-base text-foreground"
+                onClick={() => setOpen(false)}
+                className="flex min-h-14 items-center border-b border-border/60 py-4 text-lg tracking-wide text-foreground"
               >
                 {item.label}
               </Link>
@@ -152,12 +153,16 @@ export function SiteHeader() {
                 setOpen(false);
                 openInquiry();
               }}
-              className="flex min-h-12 items-center border-b border-border/60 text-left text-base text-foreground"
+              className="flex min-h-14 items-center border-b border-border/60 py-4 text-left text-lg tracking-wide text-foreground"
             >
-              Inquiry List ({count})
+              Quote Request ({count})
             </button>
-            <Link to="/request-quote" className="btn btn-primary mt-4">
-              Request Quote
+            <Link
+              to="/request-quote"
+              onClick={() => setOpen(false)}
+              className="btn btn-primary my-5 min-h-14 text-base"
+            >
+              Request Export Quote
             </Link>
           </nav>
         </div>
