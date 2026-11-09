@@ -1,66 +1,195 @@
+import { Link } from "@tanstack/react-router";
+import { Mail } from "lucide-react";
+import type { ReactNode } from "react";
+import { FaWhatsapp } from "react-icons/fa6";
+
+import { SmartLink } from "@/components/site/Blocks";
+import { SOCIALS } from "@/lib/socials";
+
+import { Logo } from "@/components/site/Logo";
+import { ON_REQUEST } from "@/data/catalog";
+import { emailUrl, whatsappUrl } from "@/lib/links";
+import { useSite } from "@/lib/use-site";
+
+const linkClass = "text-navy-foreground/75 transition-colors hover:text-gold-soft";
+
+function Heading({ children }: { children: ReactNode }) {
+  return <p className="eyebrow text-gold-soft">{children}</p>;
+}
 
 export function Footer() {
+  const { settings, collections } = useSite();
+  const { company, social, nav } = settings;
+  const iconClass =
+    "inline-flex h-9 w-9 items-center justify-center border border-navy-foreground/25";
+  const registrations = [
+    ["GSTIN", company.gstin],
+    ["IEC Code", company.iec],
+    ["LLPIN", company.llpin],
+    ...(company.udyam ? [["Udyam Registration", company.udyam] as const] : []),
+    ...(company.epch ? [["EPCH / RCMC Membership", company.epch] as const] : []),
+  ];
+
   return (
-    <footer className="bg-espresso py-16 text-espresso-foreground">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-3 lg:px-10">
+    <footer className="bg-navy-deep text-sm text-navy-foreground">
+      <div className="wrap grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr_1.2fr]">
         <div>
-          <img
-            src="/mridora-logo.png"
-            alt="MRIDORA"
-            width={140}
-            height={94}
-            loading="lazy"
-            className="h-12 w-auto object-contain brightness-0 invert"
-          />
-          <p className="mt-6 max-w-xs leading-relaxed text-espresso-foreground/60">
-            Premium ceramic tableware from Khurja, India — exported to homes, hotels and restaurants
-            worldwide.
+          <span className="inline-block bg-ivory p-2">
+            <Logo className="w-28" />
+          </span>
+          <p className="mt-5 font-display text-lg italic text-gold-soft">{settings.tagline}</p>
+          <p className="mt-3 leading-relaxed text-navy-foreground/75">
+            {settings.brandDescription}
           </p>
         </div>
 
         <div>
-          <p className="eyebrow text-primary">Explore</p>
-          <ul className="mt-6 space-y-3 text-espresso-foreground/70">
+          <Heading>{nav.quickHeading}</Heading>
+          <ul className="mt-5 space-y-2.5">
+            {nav.footerQuick.map((item) => (
+              <li key={item.href}>
+                <SmartLink href={item.href} className={linkClass}>
+                  {item.label}
+                </SmartLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <Heading>{nav.collectionsHeading}</Heading>
+          <ul className="mt-5 space-y-2.5">
+            {collections.map((c) => (
+              <li key={c.code}>
+                <Link
+                  to="/collections/$collection"
+                  params={{ collection: c.slug }}
+                  className={linkClass}
+                >
+                  {c.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <Heading>{nav.deskHeading}</Heading>
+          <ul className="mt-5 space-y-3 break-words text-navy-foreground/75">
             <li>
-              <a href="#products" className="hover:text-espresso-foreground">
-                Products
+              Export Enquiries:{" "}
+              <a href={`mailto:${settings.exportEmail}`} className={linkClass}>
+                {settings.exportEmail}
               </a>
             </li>
             <li>
-              <a href="#manufacturing" className="hover:text-espresso-foreground">
-                Manufacturing
+              General Enquiries:{" "}
+              <a href={`mailto:${settings.generalEmail}`} className={linkClass}>
+                {settings.generalEmail}
               </a>
             </li>
             <li>
-              <a href="#markets" className="hover:text-espresso-foreground">
-                Markets
+              <a
+                href={whatsappUrl(settings)}
+                target="_blank"
+                rel="noreferrer"
+                className={linkClass}
+              >
+                WhatsApp Export Desk
               </a>
             </li>
             <li>
-              <a href="#why" className="hover:text-espresso-foreground">
-                Why MRIDORA
-              </a>
+              Registered Office: {company.address || ON_REQUEST}, {company.country}
+            </li>
+            <li>
+              <Link to="/request-a-quote" className={linkClass}>
+                Business Enquiry Form
+              </Link>
             </li>
           </ul>
         </div>
 
         <div>
-          <p className="eyebrow text-primary">Contact</p>
-          <ul className="mt-6 space-y-3 text-espresso-foreground/70">
-            <li>Khurja, Uttar Pradesh, India</li>
+          <Heading>{nav.companyHeading}</Heading>
+          <ul className="mt-5 space-y-2.5 text-navy-foreground/75">
+            <li>{company.legalName}</li>
+            {registrations.map(([label, value]) => (
+              <li key={label}>
+                {label}: {value || ON_REQUEST}
+              </li>
+            ))}
             <li>
-              <a href="mailto:exports@mridora.com" className="hover:text-espresso-foreground">
-                exports@mridora.com
-              </a>
+              <SmartLink href="/quality-compliance" className={linkClass}>
+                Quality & Documentation
+              </SmartLink>
             </li>
+            {nav.footerLegal.slice(0, 2).map((item) => (
+              <li key={item.href}>
+                <SmartLink href={item.href} className={linkClass}>
+                  {item.label}
+                </SmartLink>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
 
-      <div className="mx-auto mt-14 max-w-7xl px-6 lg:px-10">
-        <p className="border-t border-espresso-foreground/15 pt-8 text-sm text-espresso-foreground/50">
-          © {new Date().getFullYear()} MRIDORA. All rights reserved.
-        </p>
+      <div className="wrap flex flex-wrap gap-2 pb-10">
+        {SOCIALS.map(({ key, label, Icon }) =>
+          social[key] ? (
+            <a
+              key={key}
+              href={social[key]}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={label}
+              className={`${iconClass} transition-colors hover:border-gold hover:text-gold-soft`}
+            >
+              <Icon aria-hidden />
+            </a>
+          ) : (
+            <span
+              key={key}
+              title={`${label}: profile not yet available`}
+              className={`${iconClass} opacity-30`}
+            >
+              <Icon aria-hidden />
+              <span className="sr-only">{label} profile not yet available</span>
+            </span>
+          ),
+        )}
+        <a
+          href={whatsappUrl(settings)}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="WhatsApp"
+          className={`${iconClass} transition-colors hover:border-gold hover:text-gold-soft`}
+        >
+          <FaWhatsapp aria-hidden />
+        </a>
+        <a
+          href={emailUrl(settings)}
+          aria-label="Email"
+          className={`${iconClass} transition-colors hover:border-gold hover:text-gold-soft`}
+        >
+          <Mail className="h-4 w-4" aria-hidden />
+        </a>
+      </div>
+
+      <div className="border-t border-navy-foreground/15">
+        <div className="wrap flex flex-wrap items-center justify-between gap-3 py-6 text-xs text-navy-foreground/60">
+          <p>© {new Date().getFullYear()} MRIDORA. All Rights Reserved.</p>
+          <p className="flex flex-wrap gap-3">
+            {nav.footerLegal.map((item, i) => (
+              <span key={item.href} className="flex gap-3">
+                {i > 0 && <span aria-hidden>|</span>}
+                <SmartLink href={item.href} className="hover:text-gold-soft">
+                  {item.label}
+                </SmartLink>
+              </span>
+            ))}
+          </p>
+        </div>
       </div>
     </footer>
   );

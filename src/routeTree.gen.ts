@@ -9,50 +9,675 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as SiteRouteImport } from './routes/_site'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AdminPreviewRouteImport } from './routes/admin-preview'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SiteIndexRouteImport } from './routes/_site/index'
+import { Route as SitePageRouteImport } from './routes/_site/$page'
+import { Route as SiteRequestAQuoteRouteImport } from './routes/_site/request-a-quote'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as AdminActivityRouteImport } from './routes/admin/activity'
+import { Route as AdminAnalyticsRouteImport } from './routes/admin/analytics'
+import { Route as AdminCollectionsRouteImport } from './routes/admin/collections'
+import { Route as AdminDesignRouteImport } from './routes/admin/design'
+import { Route as AdminDocumentsRouteImport } from './routes/admin/documents'
+import { Route as AdminEnquiriesRouteImport } from './routes/admin/enquiries'
+import { Route as AdminMediaRouteImport } from './routes/admin/media'
+import { Route as AdminSecurityRouteImport } from './routes/admin/security'
+import { Route as AdminSeoRouteImport } from './routes/admin/seo'
+import { Route as AdminSettingsRouteImport } from './routes/admin/settings'
+import { Route as AdminSystemRouteImport } from './routes/admin/system'
+import { Route as AdminUsersRouteImport } from './routes/admin/users'
+import { Route as ApiTrackRouteImport } from './routes/api/track'
+import { Route as SiteCollectionsIndexRouteImport } from './routes/_site/collections/index'
+import { Route as SiteProductsSlugRouteImport } from './routes/_site/products/$slug'
+import { Route as AdminPagesIndexRouteImport } from './routes/admin/pages/index'
+import { Route as AdminPagesSlugRouteImport } from './routes/admin/pages/$slug'
+import { Route as AdminProductsIndexRouteImport } from './routes/admin/products/index'
+import { Route as AdminProductsIdRouteImport } from './routes/admin/products/$id'
+import { Route as SiteCollectionsCollectionIndexRouteImport } from './routes/_site/collections/$collection.index'
+import { Route as SiteCollectionsCollectionSubcategoryRouteImport } from './routes/_site/collections/$collection.$subcategory'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const SiteRoute = SiteRouteImport.update({
+  id: '/_site',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPreviewRoute = AdminPreviewRouteImport.update({
+  id: '/admin-preview',
+  path: '/admin-preview',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SiteIndexRoute = SiteIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SitePageRoute = SitePageRouteImport.update({
+  id: '/$page',
+  path: '/$page',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteRequestAQuoteRoute = SiteRequestAQuoteRouteImport.update({
+  id: '/request-a-quote',
+  path: '/request-a-quote',
+  getParentRoute: () => SiteRoute,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminActivityRoute = AdminActivityRouteImport.update({
+  id: '/activity',
+  path: '/activity',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCollectionsRoute = AdminCollectionsRouteImport.update({
+  id: '/collections',
+  path: '/collections',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminDesignRoute = AdminDesignRouteImport.update({
+  id: '/design',
+  path: '/design',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminDocumentsRoute = AdminDocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminEnquiriesRoute = AdminEnquiriesRouteImport.update({
+  id: '/enquiries',
+  path: '/enquiries',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminMediaRoute = AdminMediaRouteImport.update({
+  id: '/media',
+  path: '/media',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSecurityRoute = AdminSecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSeoRoute = AdminSeoRouteImport.update({
+  id: '/seo',
+  path: '/seo',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSystemRoute = AdminSystemRouteImport.update({
+  id: '/system',
+  path: '/system',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRoute,
+} as any)
+const ApiTrackRoute = ApiTrackRouteImport.update({
+  id: '/api/track',
+  path: '/api/track',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SiteCollectionsIndexRoute = SiteCollectionsIndexRouteImport.update({
+  id: '/collections/',
+  path: '/collections/',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteProductsSlugRoute = SiteProductsSlugRouteImport.update({
+  id: '/products/$slug',
+  path: '/products/$slug',
+  getParentRoute: () => SiteRoute,
+} as any)
+const AdminPagesIndexRoute = AdminPagesIndexRouteImport.update({
+  id: '/pages/',
+  path: '/pages/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminPagesSlugRoute = AdminPagesSlugRouteImport.update({
+  id: '/pages/$slug',
+  path: '/pages/$slug',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminProductsIndexRoute = AdminProductsIndexRouteImport.update({
+  id: '/products/',
+  path: '/products/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminProductsIdRoute = AdminProductsIdRouteImport.update({
+  id: '/products/$id',
+  path: '/products/$id',
+  getParentRoute: () => AdminRoute,
+} as any)
+const SiteCollectionsCollectionIndexRoute =
+  SiteCollectionsCollectionIndexRouteImport.update({
+    id: '/collections/$collection/',
+    path: '/collections/$collection/',
+    getParentRoute: () => SiteRoute,
+  } as any)
+const SiteCollectionsCollectionSubcategoryRoute =
+  SiteCollectionsCollectionSubcategoryRouteImport.update({
+    id: '/collections/$collection/$subcategory',
+    path: '/collections/$collection/$subcategory',
+    getParentRoute: () => SiteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/': typeof SiteIndexRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/admin-preview': typeof AdminPreviewRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/$page': typeof SitePageRoute
+  '/request-a-quote': typeof SiteRequestAQuoteRoute
+  '/admin/activity': typeof AdminActivityRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/collections': typeof AdminCollectionsRoute
+  '/admin/design': typeof AdminDesignRoute
+  '/admin/documents': typeof AdminDocumentsRoute
+  '/admin/enquiries': typeof AdminEnquiriesRoute
+  '/admin/media': typeof AdminMediaRoute
+  '/admin/security': typeof AdminSecurityRoute
+  '/admin/seo': typeof AdminSeoRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/system': typeof AdminSystemRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/api/track': typeof ApiTrackRoute
+  '/admin/': typeof AdminIndexRoute
+  '/products/$slug': typeof SiteProductsSlugRoute
+  '/admin/pages/$slug': typeof AdminPagesSlugRoute
+  '/admin/products/$id': typeof AdminProductsIdRoute
+  '/collections/': typeof SiteCollectionsIndexRoute
+  '/admin/pages/': typeof AdminPagesIndexRoute
+  '/admin/products/': typeof AdminProductsIndexRoute
+  '/collections/$collection/$subcategory': typeof SiteCollectionsCollectionSubcategoryRoute
+  '/collections/$collection/': typeof SiteCollectionsCollectionIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/admin-preview': typeof AdminPreviewRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/$page': typeof SitePageRoute
+  '/request-a-quote': typeof SiteRequestAQuoteRoute
+  '/admin/activity': typeof AdminActivityRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/collections': typeof AdminCollectionsRoute
+  '/admin/design': typeof AdminDesignRoute
+  '/admin/documents': typeof AdminDocumentsRoute
+  '/admin/enquiries': typeof AdminEnquiriesRoute
+  '/admin/media': typeof AdminMediaRoute
+  '/admin/security': typeof AdminSecurityRoute
+  '/admin/seo': typeof AdminSeoRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/system': typeof AdminSystemRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/api/track': typeof ApiTrackRoute
+  '/': typeof SiteIndexRoute
+  '/admin': typeof AdminIndexRoute
+  '/products/$slug': typeof SiteProductsSlugRoute
+  '/admin/pages/$slug': typeof AdminPagesSlugRoute
+  '/admin/products/$id': typeof AdminProductsIdRoute
+  '/collections': typeof SiteCollectionsIndexRoute
+  '/admin/pages': typeof AdminPagesIndexRoute
+  '/admin/products': typeof AdminProductsIndexRoute
+  '/collections/$collection/$subcategory': typeof SiteCollectionsCollectionSubcategoryRoute
+  '/collections/$collection': typeof SiteCollectionsCollectionIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/_site': typeof SiteRouteWithChildren
+  '/admin': typeof AdminRouteWithChildren
+  '/admin-preview': typeof AdminPreviewRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/_site/$page': typeof SitePageRoute
+  '/_site/request-a-quote': typeof SiteRequestAQuoteRoute
+  '/admin/activity': typeof AdminActivityRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/collections': typeof AdminCollectionsRoute
+  '/admin/design': typeof AdminDesignRoute
+  '/admin/documents': typeof AdminDocumentsRoute
+  '/admin/enquiries': typeof AdminEnquiriesRoute
+  '/admin/media': typeof AdminMediaRoute
+  '/admin/security': typeof AdminSecurityRoute
+  '/admin/seo': typeof AdminSeoRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/system': typeof AdminSystemRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/api/track': typeof ApiTrackRoute
+  '/_site/': typeof SiteIndexRoute
+  '/admin/': typeof AdminIndexRoute
+  '/_site/products/$slug': typeof SiteProductsSlugRoute
+  '/admin/pages/$slug': typeof AdminPagesSlugRoute
+  '/admin/products/$id': typeof AdminProductsIdRoute
+  '/_site/collections/': typeof SiteCollectionsIndexRoute
+  '/admin/pages/': typeof AdminPagesIndexRoute
+  '/admin/products/': typeof AdminProductsIndexRoute
+  '/_site/collections/$collection/$subcategory': typeof SiteCollectionsCollectionSubcategoryRoute
+  '/_site/collections/$collection/': typeof SiteCollectionsCollectionIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/admin-preview'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/$page'
+    | '/request-a-quote'
+    | '/admin/activity'
+    | '/admin/analytics'
+    | '/admin/collections'
+    | '/admin/design'
+    | '/admin/documents'
+    | '/admin/enquiries'
+    | '/admin/media'
+    | '/admin/security'
+    | '/admin/seo'
+    | '/admin/settings'
+    | '/admin/system'
+    | '/admin/users'
+    | '/api/track'
+    | '/admin/'
+    | '/products/$slug'
+    | '/admin/pages/$slug'
+    | '/admin/products/$id'
+    | '/collections/'
+    | '/admin/pages/'
+    | '/admin/products/'
+    | '/collections/$collection/$subcategory'
+    | '/collections/$collection/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/admin-preview'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/$page'
+    | '/request-a-quote'
+    | '/admin/activity'
+    | '/admin/analytics'
+    | '/admin/collections'
+    | '/admin/design'
+    | '/admin/documents'
+    | '/admin/enquiries'
+    | '/admin/media'
+    | '/admin/security'
+    | '/admin/seo'
+    | '/admin/settings'
+    | '/admin/system'
+    | '/admin/users'
+    | '/api/track'
+    | '/'
+    | '/admin'
+    | '/products/$slug'
+    | '/admin/pages/$slug'
+    | '/admin/products/$id'
+    | '/collections'
+    | '/admin/pages'
+    | '/admin/products'
+    | '/collections/$collection/$subcategory'
+    | '/collections/$collection'
+  id:
+    | '__root__'
+    | '/_site'
+    | '/admin'
+    | '/admin-preview'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/_site/$page'
+    | '/_site/request-a-quote'
+    | '/admin/activity'
+    | '/admin/analytics'
+    | '/admin/collections'
+    | '/admin/design'
+    | '/admin/documents'
+    | '/admin/enquiries'
+    | '/admin/media'
+    | '/admin/security'
+    | '/admin/seo'
+    | '/admin/settings'
+    | '/admin/system'
+    | '/admin/users'
+    | '/api/track'
+    | '/_site/'
+    | '/admin/'
+    | '/_site/products/$slug'
+    | '/admin/pages/$slug'
+    | '/admin/products/$id'
+    | '/_site/collections/'
+    | '/admin/pages/'
+    | '/admin/products/'
+    | '/_site/collections/$collection/$subcategory'
+    | '/_site/collections/$collection/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  SiteRoute: typeof SiteRouteWithChildren
+  AdminRoute: typeof AdminRouteWithChildren
+  AdminPreviewRoute: typeof AdminPreviewRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ApiTrackRoute: typeof ApiTrackRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/_site': {
+      id: '/_site'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof SiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin-preview': {
+      id: '/admin-preview'
+      path: '/admin-preview'
+      fullPath: '/admin-preview'
+      preLoaderRoute: typeof AdminPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_site/': {
+      id: '/_site/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+      preLoaderRoute: typeof SiteIndexRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/$page': {
+      id: '/_site/$page'
+      path: '/$page'
+      fullPath: '/$page'
+      preLoaderRoute: typeof SitePageRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/request-a-quote': {
+      id: '/_site/request-a-quote'
+      path: '/request-a-quote'
+      fullPath: '/request-a-quote'
+      preLoaderRoute: typeof SiteRequestAQuoteRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/activity': {
+      id: '/admin/activity'
+      path: '/activity'
+      fullPath: '/admin/activity'
+      preLoaderRoute: typeof AdminActivityRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/analytics': {
+      id: '/admin/analytics'
+      path: '/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAnalyticsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/collections': {
+      id: '/admin/collections'
+      path: '/collections'
+      fullPath: '/admin/collections'
+      preLoaderRoute: typeof AdminCollectionsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/design': {
+      id: '/admin/design'
+      path: '/design'
+      fullPath: '/admin/design'
+      preLoaderRoute: typeof AdminDesignRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/documents': {
+      id: '/admin/documents'
+      path: '/documents'
+      fullPath: '/admin/documents'
+      preLoaderRoute: typeof AdminDocumentsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/enquiries': {
+      id: '/admin/enquiries'
+      path: '/enquiries'
+      fullPath: '/admin/enquiries'
+      preLoaderRoute: typeof AdminEnquiriesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/media': {
+      id: '/admin/media'
+      path: '/media'
+      fullPath: '/admin/media'
+      preLoaderRoute: typeof AdminMediaRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/security': {
+      id: '/admin/security'
+      path: '/security'
+      fullPath: '/admin/security'
+      preLoaderRoute: typeof AdminSecurityRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/seo': {
+      id: '/admin/seo'
+      path: '/seo'
+      fullPath: '/admin/seo'
+      preLoaderRoute: typeof AdminSeoRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/system': {
+      id: '/admin/system'
+      path: '/system'
+      fullPath: '/admin/system'
+      preLoaderRoute: typeof AdminSystemRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/api/track': {
+      id: '/api/track'
+      path: '/api/track'
+      fullPath: '/api/track'
+      preLoaderRoute: typeof ApiTrackRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_site/collections/': {
+      id: '/_site/collections/'
+      path: '/collections'
+      fullPath: '/collections/'
+      preLoaderRoute: typeof SiteCollectionsIndexRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/products/$slug': {
+      id: '/_site/products/$slug'
+      path: '/products/$slug'
+      fullPath: '/products/$slug'
+      preLoaderRoute: typeof SiteProductsSlugRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/admin/pages/': {
+      id: '/admin/pages/'
+      path: '/pages'
+      fullPath: '/admin/pages/'
+      preLoaderRoute: typeof AdminPagesIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/pages/$slug': {
+      id: '/admin/pages/$slug'
+      path: '/pages/$slug'
+      fullPath: '/admin/pages/$slug'
+      preLoaderRoute: typeof AdminPagesSlugRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/products/': {
+      id: '/admin/products/'
+      path: '/products'
+      fullPath: '/admin/products/'
+      preLoaderRoute: typeof AdminProductsIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/products/$id': {
+      id: '/admin/products/$id'
+      path: '/products/$id'
+      fullPath: '/admin/products/$id'
+      preLoaderRoute: typeof AdminProductsIdRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/_site/collections/$collection/': {
+      id: '/_site/collections/$collection/'
+      path: '/collections/$collection'
+      fullPath: '/collections/$collection/'
+      preLoaderRoute: typeof SiteCollectionsCollectionIndexRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/collections/$collection/$subcategory': {
+      id: '/_site/collections/$collection/$subcategory'
+      path: '/collections/$collection/$subcategory'
+      fullPath: '/collections/$collection/$subcategory'
+      preLoaderRoute: typeof SiteCollectionsCollectionSubcategoryRouteImport
+      parentRoute: typeof SiteRoute
     }
   }
 }
 
+interface SiteRouteChildren {
+  SitePageRoute: typeof SitePageRoute
+  SiteRequestAQuoteRoute: typeof SiteRequestAQuoteRoute
+  SiteIndexRoute: typeof SiteIndexRoute
+  SiteProductsSlugRoute: typeof SiteProductsSlugRoute
+  SiteCollectionsIndexRoute: typeof SiteCollectionsIndexRoute
+  SiteCollectionsCollectionSubcategoryRoute: typeof SiteCollectionsCollectionSubcategoryRoute
+  SiteCollectionsCollectionIndexRoute: typeof SiteCollectionsCollectionIndexRoute
+}
+
+const SiteRouteChildren: SiteRouteChildren = {
+  SitePageRoute: SitePageRoute,
+  SiteRequestAQuoteRoute: SiteRequestAQuoteRoute,
+  SiteIndexRoute: SiteIndexRoute,
+  SiteProductsSlugRoute: SiteProductsSlugRoute,
+  SiteCollectionsIndexRoute: SiteCollectionsIndexRoute,
+  SiteCollectionsCollectionSubcategoryRoute:
+    SiteCollectionsCollectionSubcategoryRoute,
+  SiteCollectionsCollectionIndexRoute: SiteCollectionsCollectionIndexRoute,
+}
+
+const SiteRouteWithChildren = SiteRoute._addFileChildren(SiteRouteChildren)
+
+interface AdminRouteChildren {
+  AdminActivityRoute: typeof AdminActivityRoute
+  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
+  AdminCollectionsRoute: typeof AdminCollectionsRoute
+  AdminDesignRoute: typeof AdminDesignRoute
+  AdminDocumentsRoute: typeof AdminDocumentsRoute
+  AdminEnquiriesRoute: typeof AdminEnquiriesRoute
+  AdminMediaRoute: typeof AdminMediaRoute
+  AdminSecurityRoute: typeof AdminSecurityRoute
+  AdminSeoRoute: typeof AdminSeoRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminSystemRoute: typeof AdminSystemRoute
+  AdminUsersRoute: typeof AdminUsersRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+  AdminPagesSlugRoute: typeof AdminPagesSlugRoute
+  AdminProductsIdRoute: typeof AdminProductsIdRoute
+  AdminPagesIndexRoute: typeof AdminPagesIndexRoute
+  AdminProductsIndexRoute: typeof AdminProductsIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminActivityRoute: AdminActivityRoute,
+  AdminAnalyticsRoute: AdminAnalyticsRoute,
+  AdminCollectionsRoute: AdminCollectionsRoute,
+  AdminDesignRoute: AdminDesignRoute,
+  AdminDocumentsRoute: AdminDocumentsRoute,
+  AdminEnquiriesRoute: AdminEnquiriesRoute,
+  AdminMediaRoute: AdminMediaRoute,
+  AdminSecurityRoute: AdminSecurityRoute,
+  AdminSeoRoute: AdminSeoRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminSystemRoute: AdminSystemRoute,
+  AdminUsersRoute: AdminUsersRoute,
+  AdminIndexRoute: AdminIndexRoute,
+  AdminPagesSlugRoute: AdminPagesSlugRoute,
+  AdminProductsIdRoute: AdminProductsIdRoute,
+  AdminPagesIndexRoute: AdminPagesIndexRoute,
+  AdminProductsIndexRoute: AdminProductsIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  SiteRoute: SiteRouteWithChildren,
+  AdminRoute: AdminRouteWithChildren,
+  AdminPreviewRoute: AdminPreviewRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ApiTrackRoute: ApiTrackRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -19,11 +19,11 @@
  */
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --font-display: "Playfair Display", Georgia, serif;
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 6px);
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
   --font-sans: "Jost", system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -44,43 +44,47 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-espresso: var(--espresso);
-  --color-espresso-foreground: var(--espresso-foreground);
-  --color-clay: var(--clay);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-foreground: var(--navy-foreground);
   --color-gold: var(--gold);
-  --color-sand: var(--sand);
+  --color-gold-soft: var(--gold-soft);
+  --color-ivory: var(--ivory);
+  --color-stone: var(--stone);
 }
 
 :root {
-  --radius: 0.25rem;
-  /* Warm cream paper */
-  --background: oklch(0.975 0.008 85);
-  --foreground: oklch(0.24 0.012 60);
-  --card: oklch(0.99 0.005 85);
-  --card-foreground: oklch(0.24 0.012 60);
-  --popover: oklch(0.99 0.005 85);
-  --popover-foreground: oklch(0.24 0.012 60);
-  /* Terracotta clay */
-  --primary: oklch(0.58 0.115 40);
-  --primary-foreground: oklch(0.98 0.008 85);
-  --secondary: oklch(0.93 0.014 80);
-  --secondary-foreground: oklch(0.28 0.014 60);
-  --muted: oklch(0.94 0.012 82);
-  --muted-foreground: oklch(0.48 0.014 62);
-  --accent: oklch(0.9 0.02 78);
-  --accent-foreground: oklch(0.28 0.014 60);
+  --radius: 0.125rem;
+  /* Ivory paper */
+  --background: oklch(0.985 0.008 90);
+  --foreground: oklch(0.25 0.045 262);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.25 0.045 262);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.25 0.045 262);
+  /* Navy */
+  --primary: oklch(0.29 0.07 262);
+  --primary-foreground: oklch(0.985 0.008 90);
+  --secondary: oklch(0.955 0.012 88);
+  --secondary-foreground: oklch(0.29 0.07 262);
+  --muted: oklch(0.955 0.012 88);
+  --muted-foreground: oklch(0.47 0.03 262);
+  --accent: oklch(0.94 0.03 85);
+  --accent-foreground: oklch(0.29 0.07 262);
   --destructive: oklch(0.55 0.19 27);
   --destructive-foreground: oklch(0.98 0.008 85);
-  --border: oklch(0.88 0.012 80);
-  --input: oklch(0.88 0.012 80);
-  --ring: oklch(0.58 0.115 40);
-  /* Brand extras */
-  --espresso: oklch(0.21 0.014 55);
-  --espresso-foreground: oklch(0.94 0.012 82);
-  --clay: oklch(0.58 0.115 40);
-  --gold: oklch(0.78 0.11 85);
-  --sand: oklch(0.93 0.016 80);
-  --shadow-soft: 0 24px 60px -30px oklch(0.24 0.02 55 / 0.35);
+  --border: oklch(0.9 0.015 85);
+  --input: oklch(0.88 0.015 85);
+  --ring: oklch(0.68 0.11 82);
+  /* Brand */
+  --navy: oklch(0.29 0.07 262);
+  --navy-deep: oklch(0.22 0.055 262);
+  --navy-foreground: oklch(0.96 0.012 88);
+  --gold: oklch(0.7 0.115 82);
+  --gold-soft: oklch(0.82 0.08 85);
+  --ivory: oklch(0.985 0.008 90);
+  --stone: oklch(0.955 0.014 85);
+  --shadow-soft: 0 24px 60px -32px oklch(0.25 0.06 262 / 0.35);
 }
 
 @layer base {
@@ -134,3 +138,66 @@
   animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+
+@utility wrap {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 1.25rem;
+  @media (width >= 64rem) {
+    padding-inline: 2.5rem;
+  }
+}
+
+@utility gold-rule {
+  display: block;
+  height: 1px;
+  width: 4rem;
+  background: var(--color-gold);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+}
+
+:root {
+  --section-y: 4rem;
+  --btn-radius: 0;
+  --card-zoom: 1.05;
+  --grid-d: 3;
+  --grid-t: 2;
+  --grid-m: 1;
+}
+
+@utility section-y {
+  padding-block: var(--section-y);
+}
+
+@utility btn-shape {
+  border-radius: var(--btn-radius);
+}
+
+@utility product-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(var(--grid-m), minmax(0, 1fr));
+  @media (width >= 40rem) {
+    grid-template-columns: repeat(var(--grid-t), minmax(0, 1fr));
+  }
+  @media (width >= 80rem) {
+    grid-template-columns: repeat(var(--grid-d), minmax(0, 1fr));
+  }
+}
+
+@utility card-zoom {
+  transition: transform 0.5s;
+  &:hover {
+    transform: scale(var(--card-zoom));
+  }
+}

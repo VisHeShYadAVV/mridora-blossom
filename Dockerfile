@@ -10,6 +10,11 @@ RUN bun install --frozen-lockfile
 
 # Copy the rest of the source and build
 COPY . .
+# Public Supabase settings are compiled into the site. Empty means static default content.
+ARG VITE_SUPABASE_URL=""
+ARG VITE_SUPABASE_ANON_KEY=""
+ENV VITE_SUPABASE_URL=$VITE_SUPABASE_URL
+ENV VITE_SUPABASE_ANON_KEY=$VITE_SUPABASE_ANON_KEY
 # Emit a plain Node server instead of the default Cloudflare Worker output
 ENV NITRO_PRESET=node-server
 ENV NODE_ENV=production

@@ -3,6 +3,7 @@ import {
   Outlet,
   Link,
   createRootRouteWithContext,
+  useLoaderData,
   useRouter,
   HeadContent,
   Scripts,
@@ -11,16 +12,20 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { defaultSettings } from "../data/settings";
+import { getSiteData } from "../lib/data";
+import { designCss, fontsUrl } from "../lib/design";
+import { absoluteUrl, jsonLd } from "../lib/seo";
 
 function NotFoundComponent() {
+  const { technical } = (useLoaderData({ from: "__root__" }) ?? { settings: defaultSettings })
+    .settings;
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">{technical.notFoundTitle}</h2>
+        <p className="mt-2 text-sm text-muted-foreground">{technical.notFoundText}</p>
         <div className="mt-6">
           <Link
             to="/"
@@ -73,34 +78,43 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "MRIDORA — Ceramic Tableware Exporters" },
-      {
-        name: "description",
-        content:
-          "MRIDORA exports premium Khurja ceramic tableware to homes, hotels and restaurants worldwide.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      {
-        rel: "preconnect",
-        href: "https://fonts.gstatic.com",
-        crossOrigin: "anonymous",
-      },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..600&family=Jost:wght@300;400;500&display=swap",
-      },
-      { rel: "icon", type: "image/png", href: "/favicon.png" },
-    ],
-  }),
+  loader: () => getSiteData(),
+  head: ({ loaderData }) => {
+    const settings = loaderData?.settings ?? defaultSettings;
+    const verification = settings.analytics.searchConsoleVerification.trim();
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { title: "MRIDORA | Ceramic Export & Sourcing from India" },
+        { property: "og:type", content: "website" },
+        { property: "og:site_name", content: settings.brandName },
+        { name: "twitter:card", content: "summary_large_image" },
+        ...(verification ? [{ name: "google-site-verification", content: verification }] : []),
+      ],
+      links: [
+        { rel: "stylesheet", href: appCss },
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+        { rel: "stylesheet", href: fontsUrl(settings.design) },
+        { rel: "icon", type: "image/png", href: settings.design.faviconUrl || "/favicon.png" },
+      ],
+      styles: [{ children: designCss(settings.design) }],
+      scripts: settings.seo.schemaOrganization
+        ? [
+            jsonLd({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: settings.company.legalName,
+              brand: settings.brandName,
+              url: settings.siteUrl,
+              logo: absoluteUrl(settings.design.logoUrl || "/mridora-logo.png"),
+              email: settings.exportEmail,
+            }),
+          ]
+        : [],
+    };
+  },
 
   shellComponent: RootShell,
   component: RootComponent,
